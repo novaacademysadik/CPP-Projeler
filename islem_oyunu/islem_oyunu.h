@@ -15,8 +15,9 @@ class islem_game{
 			return rand() % highest + lowest;	
 		}
 		
-		void difficulty(){
+		void difficulty(string kullanici){
 			int ans;
+			int zorluk;
 			
 			system("cls");
 			do{
@@ -30,24 +31,28 @@ class islem_game{
 			if(ans == 1){
 				highest = 100;
 				lowest = 10;
+				zorluk = 1;
 			}
 				
 			else if(ans == 2){
 				highest = 500;
 				lowest = 50;
+				zorluk = 2;
 			}
 				
 			else{
 				highest = 1000;
 				lowest = 100;
+				zorluk = 4;
 			}		
 			
 			print("Oyun Baþlatýlýyor");
 			animate('.');
-			game();
+			
+			game(kullanici,zorluk);
 		}
 		
-		void game(){
+		void game(string kullanici,int zorluk){
 			int hp = 5;
 				
 			int	number;
@@ -123,15 +128,18 @@ class islem_game{
 					break;
 				}
 			}while(true);
+			
+			int skor = (hp * 5) * zorluk;	
 		}
+		
 };
 
-void islem_oyunu_oyna{
+void islem_oyunu_oyna(string kullanici){
 	islem_game islem;
 	
-	islem.difficulty();
+	islem.difficulty(kullanici);
 }
 
-void savas_oyunu_oyna{
+void savas_oyunu_oyna(){
 	savas_baslat();
 }
