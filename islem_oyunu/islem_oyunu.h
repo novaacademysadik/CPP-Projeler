@@ -126,7 +126,8 @@ class islem_game{
 		}
 };
 
-void islem_oyunu_oyna{
+void islem_oyunu_oyna()
+{
 	islem_game islem;
 	
 	islem.difficulty();
