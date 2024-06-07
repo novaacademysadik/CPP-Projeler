@@ -14,7 +14,7 @@ class islem_game{
 			srand(time(0));
 			return rand() % highest + lowest;	
 		}
-		
+	public:
 		void difficulty(string kullanici){
 			int ans;
 			int zorluk;
