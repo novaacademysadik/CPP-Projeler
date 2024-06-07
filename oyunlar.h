@@ -1,12 +1,12 @@
 #include "kelime_oyunu/kelime_oyunu.h"
-#include "islem_oyunu/system.h"
+#include "islem_oyunu/islem_oyunu.h"
 
 class Oyun:public virtual Tanim
 {
 	public:
 		void oyunMenu()
 		{
-			string secimler[] = {"Kelime Oyunu","Ýþlem Oyunu"};
+			string secimler[] = {"Kelime Oyunu","Ýþlem Oyunu","Savaþ Oyunu"};
          bool h = false, cikis = false;
 			 do
 			 {
@@ -16,12 +16,14 @@ class Oyun:public virtual Tanim
 			 	switch(secim)
 			 	{
 			 		case 1:
-			 		     kelimeOyunuOyna();
+			 		    kelimeOyunuOyna();
 			 			break;
 			 		case 2:
-			 		     start();
+			 		    islem_oyunu_oyna();
 			 			break;	
-			 			
+			 		case 3:
+			 			savas_oyunu_oyna();
+			 			break;
 			 		case 0:
 					    cikis = true;
 						break;

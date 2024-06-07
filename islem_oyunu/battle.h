@@ -32,16 +32,16 @@ class champions : public assasin , public warrior{
 		int dodge = rand() % 100;
 		
 		if(who == 1){
-			print("\nAssasin attacked!\n");
+			print("\nSuikastçi Saldýrdý!\n");
 		}
 		else{
-			print("\nWarrior attacked\n");
+			print("\nSavaþçý Saldýrdý\n");
 		}
 		
 		
 		if(who == 2){
 			if(a_speed >= dodge){
-				print("Assasin dodged that attack!!!\n");
+				print("Suikastçi Bu Saldýrýdan Sýyrýldý!!!\n");
 				Sleep(1000);
 				return;
 			}
@@ -49,7 +49,7 @@ class champions : public assasin , public warrior{
 		
 		else{
 			if(w_speed >= dodge){
-				print("Warrior dodged that attack!!!");
+				print("Savaþçý Bu Saldýrýdan Sýyrýldý!!!");
 				Sleep(1000);
 				return;
 			}
@@ -80,10 +80,10 @@ class champions : public assasin , public warrior{
 		if(who == 1){
 			if(a_pot >= 1){
 				
-				print("Assasin used a potion!\n");	
-				print("Assasin have ");
+				print("Suikastçi Ýksir Kullandý!\n");	
+				print("Suikastçi ");
 				print(a_pot);
-				print(" potion!");
+				print(" Ýksire Sahip!");
 				
 				if(a_hp + 40 > max_a_hp){
 					for(int i = a_hp; i < max_a_hp;i++){
@@ -98,16 +98,16 @@ class champions : public assasin , public warrior{
 			}
 			
 			else{
-				print("Assasin run out of potion!!");
+				print("Suikastçinin Ýksiri Bitti!!");
 			}
 		}
 		else{
 			if(w_pot >= 1){
 				
-				print("Warrior used a potion!\n");	
-				print("Warrior have ");
+				print("Savaþçý Ýksir Kullandý!\n");	
+				print("Savaþçý ");
 				print(w_pot);
-				print(" potion!");
+				print(" Ýksire Sahip!");
 				
 				
 				if(w_hp + 40 > max_w_hp){
@@ -123,7 +123,7 @@ class champions : public assasin , public warrior{
 				
 			}
 			else{
-				print("Warrior run out of potion!");
+				print("Savaþçýnýn Ýksiri Bitti!");
 			}
 		}		
 	}
@@ -131,26 +131,26 @@ class champions : public assasin , public warrior{
 
 void mainloop(int character);
 
-void character_choose(){
+void savas_baslat(){
 	int character;
 	
 	system("cls");
 	
 	do{
-		character = int_input("Choose a character\n1)Assasin\n2)Warrior","endl");
+		character = int_input("Bir Karakter Seç\n1)Suikastçi\n2)Savaþçý","endl");
 		
 		if(character == 1){
-			print("Asssasin choosen!");
+			print("Suikastçi Seçildi!");
 			break;
 		}
 		
 		else if(character == 2){
-			print("Warrior choosen!");
+			print("Savaþçý Seçildi!");
 			break;
 		}
 		
 		else
-			print("Bad input!");
+			print("Hatalý Giriþ!");
 	}while(true);
 	
 	mainloop(character);
@@ -174,35 +174,35 @@ void mainloop(int character){
 		
 	for(;true;){
 		if(character == 1 && champ.w_hp <= 0){
-			print("You win!!!");
+			print("Kazandýn!!!");
 			break;
 		}
 		else if(character == 1 && champ.a_hp <= 0){
-			print("You lost!!!");
+			print("Kaybettin!!!");
 			break;
 		}
 		
 		else if(character == 2 && champ.w_hp <= 0){
-			print("You lost!!!");
+			print("Kaybettin!!!");
 			break;
 		}
 		
 		else if(character == 2 && champ.a_hp <= 0){
-			print("You win!!!");
+			print("Kaybettin!!!");
 			break;
 		}
 		
-		print("\n\nAssasins hp:");
+		print("\n\nSuikastçinin Caný:");
 		print(champ.a_hp);
 		
-		print("\nWarrior's hp:");
+		print("\nSavaþçýnýn Caný:");
 		print(champ.w_hp);
 
 		print("\n");
 		
 		if(turn){
 			do{
-				use = int_input("\n\n1)Attack\n2)Guard\n3)Use pot","endl");
+				use = int_input("\n\n1)Saldýr\n2)Zýrhýný Güçlendir\n3)Ýksir Ýç","endl");
 				if(use == 1){
 					champ.attack(character);
 
@@ -213,7 +213,7 @@ void mainloop(int character){
 				else if(use == 2){
 					champ.guard(character);
 					
-					print("You used guard!\n");
+					print("Zýrhýn Arttý!\n");
 					 
 					turn = false;
 					break;
@@ -227,7 +227,7 @@ void mainloop(int character){
 				}
 					
 				else
-					print("Bad input\n");
+					print("Hatalý Giriþ\n");
 			}while(true);
 		}
 		else{
@@ -254,7 +254,7 @@ void mainloop(int character){
 			else{
 				champ.attack(opp);
 				
-				print("Your oppenent attacked\n");
+				print("Rakibin Saldýrdý\n");
 				
 				turn = true;
 			}	
