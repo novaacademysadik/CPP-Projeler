@@ -8,7 +8,7 @@ class Kelime_Oyunu:public virtual Tanim, public Word_register, public Word_finde
 	void game_menu()
 		{	
 			text_print("== Oyun Menüsüne Hoþ Geldiniz ==\n\n");
-			text_print("1.Kelime Ekle\n2.Kelime Oyunu Oyna3)Geri\n\n");
+			text_print("1.Kelime Ekle\n2.Kelime Oyunu Oyna\n3)Geri\n\n");
 			selection = veriGiris("Seçim: ",i);
 
 		}

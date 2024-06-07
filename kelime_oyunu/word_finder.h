@@ -112,15 +112,5 @@ class Word_finder: public virtual Tanim
 			
 			text_print("Oyundan Çýkýþ Yapýldý...");
 		}
-	
-	
-	
-		void text_print(string text) // kayan yazý efekti fonksiyonu
-		{
-			for(int i = 0; i < text.size(); i++)
-			{
-				cout<<text[i];
-				Sleep(1);
-			}
-		}
+
 };
