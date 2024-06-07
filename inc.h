@@ -54,6 +54,11 @@ class Tanim:public Dosya
 
 #include "admin.h"
 
-
 #include "adres-sistemi.h"
+#include "oyunlar.h"
+
+
+
+
+
 

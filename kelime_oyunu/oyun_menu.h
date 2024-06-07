@@ -1,28 +1,29 @@
-class Oyun_menu:public virtual Tanim, public Word_register, public Word_finder
+class Kelime_Oyunu:public virtual Tanim, public Word_register, public Word_finder
 {
 	private:
 
 	public:
+	int selection;
 		
-		int menu()
-		{
-			int selection;
-			
+	void game_menu()
+		{	
 			text_print("== Oyun Menüsüne Hoþ Geldiniz ==\n\n");
-			text_print("1.Kelime Ekle\n2.Kelime Oyunu Oyna\n\n");
+			text_print("1.Kelime Ekle\n2.Kelime Oyunu Oyna3)Geri\n\n");
 			selection = veriGiris("Seçim: ",i);
-		
-			return selection;
+
 		}
 		
 		
-		void game_menu()
+		void Kelime_Oyunu_Menu()
 		{
-			dilAyar();
-			int selection;
-			
-			selection = menu();
-			
+		    dilAyar();
+				
+		
+		bool t;
+		do
+		{
+			game_menu();
+			t = true;
 			switch(selection)
 			{
 				case 1:
@@ -34,10 +35,16 @@ class Oyun_menu:public virtual Tanim, public Word_register, public Word_finder
 					text_print("===== ADAM ASMACA OYUNUNA HOÞGELDÝNÝZ =====\n\n");
 					word_find();
 					break;
-					
+				case 3:
+					t = false;
+					break;	
 				default:
 					text_print("Geçersiz Seçim");
 			}
+			
+			
+		}while(t);
+		
 		}
 
 };

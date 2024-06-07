@@ -20,6 +20,9 @@ class Word_register: public virtual Tanim
 			}
 			
 			print_file.close();
+			
+			cout<<"Kayýt baþarýlý..."<<endl;
+			
 		}
 
 };

@@ -1,8 +1,9 @@
+
+
 class Adres:public virtual Tanim
 {
 	public:
 
-		
 		void adresMenu()
 		{
 			string info;

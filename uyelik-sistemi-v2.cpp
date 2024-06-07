@@ -70,7 +70,7 @@ class Uyelik:public AdminMenu
 		  }
 };
 
-class UyeMenu:public Uyelik,public Adres
+class UyeMenu:public Uyelik,public Adres,public Oyun
 {
 	public:
 		void uyePanel()
@@ -100,6 +100,10 @@ class UyeMenu:public Uyelik,public Adres
 			 		case 1:
 			 		     adresMenu();
 			 			break;
+			 		case 3:
+			 			 oyunMenu();
+			 			 break;
+			 			
 			 		case 0:
 					    cikis = true;
 						break;
@@ -156,7 +160,7 @@ class UyelikSistemi:public UyeMenu
 int main()
 {
    UyelikSistemi uye;
-   uye.menu();
+   uye.oyunMenu();
    
 	return 0;
 }
