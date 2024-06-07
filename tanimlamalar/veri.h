@@ -9,7 +9,7 @@ class Veri
 	
 	string metinGiris(string info)
 	{
-		cout<<info;
+		text_print(info);
 		getline(cin,s);
 		
 		return s;
@@ -18,7 +18,7 @@ class Veri
 	template <typename X>
 	X veriGiris(string info,X deger)
 	{
-		cout<<info;
+		text_print(info);
 		cin>>deger;
 		
 		return deger;
@@ -42,6 +42,15 @@ class Veri
 		return deger;
 		
 		
+	}
+	
+	void text_print(string baslik) // kayan yazý efekti fonksiyonu
+	{
+		for(int i = 0; i < baslik.size(); i++)
+		{
+			cout<<baslik[i];
+			Sleep(1);
+		}
 	}
 	
 	
