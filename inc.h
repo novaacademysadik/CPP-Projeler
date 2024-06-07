@@ -27,9 +27,8 @@ struct AdresBilgi
 	
 };
 
-
-#include "tanimlamalar/veri.h"
 #include "tanimlamalar/ayar.h"
+#include "tanimlamalar/veri.h"
 #include "tanimlamalar/mesaj.h"
 #include "tanimlamalar/dosya.h"
 
