@@ -21,7 +21,7 @@ class islem_game{
 			
 			system("cls");
 			do{
-				ans = int_input("Bir Zorluk Sec!\n1) Kolay\n2) Normal\n3) Zor\n");
+				ans = int_input("Bir Zorluk Sec!\n1) Kolay\n2) Normal\n3) Zor\nSeçim:");
 				if(ans >= 4|| ans <= 0)
 					print("Hatalı giriş!!\n");
 				else
