@@ -166,7 +166,8 @@ class islem_game{
 		}	
 };
 
-void islem_oyunu_oyna(string kullanici){
+void islem_oyunu_oyna(string kullanici)
+{
 	islem_game islem;
 	
 	islem.difficulty(kullanici);

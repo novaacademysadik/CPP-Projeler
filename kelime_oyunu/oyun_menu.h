@@ -8,21 +8,20 @@ class Kelime_Oyunu:public virtual Tanim, public Word_register, public Word_finde
 	void game_menu()
 		{	
 			text_print("== Oyun Menüsüne Hoþ Geldiniz ==\n\n");
-			text_print("1.Kelime Ekle\n2.Kelime Oyunu Oyna3)Geri\n\n");
+			text_print("1.Kelime Ekle\n2.Kelime Oyunu Oyna\n3.Geri\n\n");
 			selection = veriGiris("Seçim: ",i);
 
 		}
-		
-		
-		void Kelime_Oyunu_Menu()
-		{
-		    dilAyar();
-				
-		
+	
+	void Kelime_Oyunu_Menu()
+	{
+	    dilAyar();
 		bool t;
+		
 		do
 		{
 			game_menu();
+		
 			t = true;
 			switch(selection)
 			{
@@ -32,7 +31,7 @@ class Kelime_Oyunu:public virtual Tanim, public Word_register, public Word_finde
 					
 				case 2:
 					system("cls");
-					text_print("===== ADAM ASMACA OYUNUNA HOÞGELDÝNÝZ =====\n\n");
+					text_print("===== KELÝME OYUNUNA HOÞGELDÝNÝZ =====\n\n");
 					word_find();
 					break;
 				case 3:
@@ -41,10 +40,6 @@ class Kelime_Oyunu:public virtual Tanim, public Word_register, public Word_finde
 				default:
 					text_print("Geçersiz Seçim");
 			}
-			
-			
 		}while(t);
-		
-		}
-
+	}
 };
