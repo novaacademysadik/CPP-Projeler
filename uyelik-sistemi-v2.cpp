@@ -28,6 +28,7 @@ class Uyelik:public AdminMenu
 		  
 		   
 		   kayit("uyeler.txt",b1);
+		   
 		}
 		 
 		 bool giris()
@@ -136,6 +137,7 @@ class UyelikSistemi:public UyeMenu
 				 {
 				 	case 1:
 				 		kaydol();
+				 		temizle();
 				 		break;
 				 	case 2:
 					    uyePanel();
