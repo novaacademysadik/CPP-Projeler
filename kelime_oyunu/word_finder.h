@@ -3,7 +3,7 @@ class Word_finder: public virtual Tanim
 	private:
 			string word;
 			int counter, random_number, no;
-			string hidded_word;
+
 			
 			char letter;
 			string hidden_word, guess;
@@ -44,7 +44,7 @@ class Word_finder: public virtual Tanim
 		
 		string hide_word(string word) // Kelime gizleme fonksiyonu
 		{
-			
+			string hidded_word;
 			for(int i = 0; i < word.size(); i++)
 				hidded_word = hidded_word + '_';
 			
@@ -101,16 +101,30 @@ class Word_finder: public virtual Tanim
 					
 					score = life * 10 + 10;
 					cout<< score << endl;
+//					save_score(user.ad,score);
 				}
-	
+
+
 				else	
 					text_print("Maalesef Yanlýþ!\nDoðru Cevap: " + word + "\n");
 					
-				answer = veriGiris("Tekrar Oynamak Ýster Misiniz? [e/h]: ", answer);
 				
-			}while(answer == 'e');
+			}while(soru("Tekrar Oynamak Ýster Misiniz?","OYUN SONU") == IDYES);
 			
-			text_print("Oyundan Çýkýþ Yapýldý...");
+			text_print("Oyundan Çýkýþ Yapýldý...\n\n");
+			Sleep(500);
+			temizle();
 		}
+		
+		
+//		void save_score(string user,int score) // 
+//		{
+//			ofstream print_score("kelime_oyunu_skor.txt");
+//			print_score.open("kelime_oyunu_skor.txt");
+//			
+//			print_score << user << "-" << score << "-" << endl;
+//			
+//			print_score.close();
+//		}
 
 };
