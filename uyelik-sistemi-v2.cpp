@@ -27,14 +27,27 @@ class Uyelik:public AdminMenu
 			}while(sifreKontrol(b1.sifre) == false);
 		  
 		   
-		   kayit("uyeler.txt",b1);
+		   	kayit("uyeler.txt",b1);
+			   
+			islem_kayit();
+		}
+		
+		void islem_kayit(){
+			// islem oyununda skorlarýn tutulabilmesi için gerekli
+		   
+		   string islem_kayit;
+		   ofstream islem_oyunu("islem_oyunu/islem_skor.txt",ios::app);
+		   
+		   islem_kayit = "-" + b1.kul_ad + "-" + "0" + "-";
+		   
+		   islem_oyunu<<islem_kayit; 
 		}
 		 
 		 bool giris()
 		 {
 		 	do
 		 	{
-		 		 b1.kul_ad = veriGiris("Kullanýcý Adý[Çýkýþ:0]:",s);
+		 		b1.kul_ad = veriGiris("Kullanýcý Adý[Çýkýþ:0]:",s);
 		 	    b1.sifre = veriGiris("Þifre: ",s);
 		 	    if(!kullaniciKontrol(b1.kul_ad,b1.sifre,"uyeler.txt") && b1.kul_ad != "0")
 		 	        hata("Hatali Giriþ","Hata");

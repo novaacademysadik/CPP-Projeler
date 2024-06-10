@@ -1,4 +1,3 @@
-#include "includes.h"
 #include "Print.h"
 #include "battle.h"
 
@@ -11,13 +10,13 @@ class islem_game{
 		char chars[4] = {'+','-','/','*'};
 		
 		int random_number(int highest, int lowest = 0){
-			srand(time(0));
-			return rand() % highest + lowest;	
+			return rand() % highest + lowest;
 		}
 	public:
 		void difficulty(string kullanici){
 			int ans;
 			int zorluk;
+			srand(time(0));
 			
 			system("cls");
 			do{
@@ -58,8 +57,8 @@ class islem_game{
 			int	number;
 			int number2;
 			
-			int p_answer;
-			int answer;
+			double p_answer;
+			double answer;
 			
 			int islem = random_number(4);
 			char Islem;
@@ -129,9 +128,42 @@ class islem_game{
 				}
 			}while(true);
 			
-			int skor = (hp * 5) * zorluk;	
-		}
-		
+			int skor = (hp * 5) * zorluk;
+			
+			string bos;
+			string k_ad;
+			string mevcut_skor;
+			
+			ofstream file("islem_oyunu/islem_skor.txt",ios::app);
+			ifstream ifile("islem_oyunu/islem_skor.txt");
+			
+			string yaz;
+			string yeni_yaz;
+			
+			for(;getline(ifile,bos,'-') && 	getline(ifile,k_ad,'-') && getline(ifile,mevcut_skor,'-');){
+				
+				if(skor > ToInt(mevcut_skor) && k_ad == kullanici){
+					yeni_yaz = "-" + kullanici + "-" + ToStr(skor) + "-\n";	
+				}
+				
+				else if(!check_file("islem_oyunu/islem_skor.txt",kullanici)){
+					yeni_yaz = "-" + kullanici + "-" + ToStr(skor) + "-\n";
+				}
+				else{
+					yaz = "-" + k_ad + "-" + mevcut_skor + "-\n";
+				}
+			}
+			string yeni;
+			
+			yeni = yaz + yeni_yaz;
+			
+			file.clear();
+			
+			file<<yeni;
+			
+			file.close();
+			ifile.close();
+		}	
 };
 
 void islem_oyunu_oyna(string kullanici){
