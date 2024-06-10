@@ -26,7 +26,7 @@ class Oyun:public virtual Tanim
 			 			savas_oyunu_oyna();
 			 			break;
 			 		case 4:
-			 			MayinTarlasi();
+			 			MayinTarlasi(user);
 			 			break;
 			 		case 0:
 					    cikis = true;

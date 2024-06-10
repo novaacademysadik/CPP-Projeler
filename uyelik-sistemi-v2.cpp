@@ -162,7 +162,7 @@ class UyelikSistemi:public UyeMenu
 int main()
 {
    UyelikSistemi uye;
-   uye.oyunMenu();
+   uye.menu();
    
 	return 0;
 }
