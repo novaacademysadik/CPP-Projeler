@@ -16,6 +16,7 @@ class Kelime_Oyunu:public virtual Tanim, public Word_register, public Word_finde
 		
 		void Kelime_Oyunu_Menu()
 		{
+		
 		    dilAyar();
 				
 		
@@ -23,6 +24,7 @@ class Kelime_Oyunu:public virtual Tanim, public Word_register, public Word_finde
 		do
 		{
 			game_menu();
+		
 			t = true;
 			switch(selection)
 			{

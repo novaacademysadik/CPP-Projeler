@@ -53,11 +53,13 @@ class Word_finder: public virtual Tanim
 		
 		void word_find() // Kelime Bul Oyun Fonksiyonu
 		{
+	
 			do
 			{
 				word = random_word();
+		
 				hidden_word = hide_word(word);
-				
+		
 				text_print(hidden_word);
 				
 				cout<< endl;
