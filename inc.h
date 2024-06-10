@@ -27,6 +27,13 @@ struct AdresBilgi
 	
 };
 
+struct Skor
+{
+	int id;
+	string kul_ad;
+	int skor;
+};
+
 #include "tanimlamalar/ayar.h"
 #include "tanimlamalar/veri.h"
 #include "tanimlamalar/mesaj.h"

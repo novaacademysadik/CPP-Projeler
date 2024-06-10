@@ -20,7 +20,7 @@ class Oyun:public virtual Tanim
 			 		    kelimeOyunuOyna();
 			 			break;
 			 		case 2:
-			 		    islem_oyunu_oyna(user.ad);
+			 		    islem_oyunu_oyna(user);
 			 			break;	
 			 		case 3:
 			 			savas_oyunu_oyna();

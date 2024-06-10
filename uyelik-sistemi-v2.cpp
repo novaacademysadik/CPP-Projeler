@@ -25,31 +25,16 @@ class Uyelik:public AdminMenu
 			{
 			  b1.sifre = veriGiris("Þifre:",s);	
 			}while(sifreKontrol(b1.sifre) == false);
-		  
-		   
-<<<<<<< HEAD
+
 		   	kayit("uyeler.txt",b1);
-			   
-			islem_kayit();
+	
 		}
 		
-		void islem_kayit(){
-			// islem oyununda skorlarýn tutulabilmesi için gerekli
-		   
-		   string islem_kayit;
-		   ofstream islem_oyunu("islem_oyunu/islem_skor.txt",ios::app);
-		   
-		   islem_kayit = "-" + b1.kul_ad + "-" + "0" + "-";
-		   
-		   islem_oyunu<<islem_kayit; 
-=======
-		   kayit("uyeler.txt",b1);
-		   
->>>>>>> 34674f19058aeeed133c7b05bde1c47dd2148294
-		}
+
 		 
 		 bool giris()
 		 {
+		 		
 		 	do
 		 	{
 		 		b1.kul_ad = veriGiris("Kullanýcý Adý[Çýkýþ:0]:",s);
@@ -59,7 +44,7 @@ class Uyelik:public AdminMenu
 		 		
 			}while(!kullaniciKontrol(b1.kul_ad,b1.sifre,"uyeler.txt") && b1.kul_ad != "0");
 		 	temizle();
-		 	
+		 
 		 	if(b1.kul_ad == "0")
 		 	    return false;
 		 	    
