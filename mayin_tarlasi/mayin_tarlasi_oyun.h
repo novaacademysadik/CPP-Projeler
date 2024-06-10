@@ -216,7 +216,7 @@ class MayinTarlasi: public Tanim
 	
 		file.close();
 	}
-	
+	/*
 	void show_highest_score(string kulAd) // kullanýcýlar arasýndan en yüksek skora ulaþan kullanýcý adý ve puaný gösterir
 	{
 		ifstream file;
@@ -258,6 +258,8 @@ class MayinTarlasi: public Tanim
 		return false;
 	}
 	
+	
+	*/
 	void show_user_score() // kullanýcýnýn son puanýný gösterir
 	{
 		
