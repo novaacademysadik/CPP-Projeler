@@ -6,4 +6,5 @@ bilgisayar
 masa
 kalem
 masa
-bilgisayarkahve
+bilgisayar
+kahve
