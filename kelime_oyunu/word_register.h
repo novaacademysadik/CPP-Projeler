@@ -7,7 +7,7 @@ class Word_register: public virtual Tanim
 	public:
 		void save_word()
 		{
-			ofstream print_file("kelimeler.txt", ios::app);
+			ofstream print_file("kelime_oyunu/kelimeler.txt", ios::app);
 			
 			piece = veriGiris("Kaydedilecek Kelime Sayýsý: ", piece);
 			

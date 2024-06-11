@@ -18,7 +18,7 @@ class Word_finder: public virtual Tanim
 			counter = 0;
 			
 			ifstream read_file;
-			read_file.open("kelimeler.txt");
+			read_file.open("kelime_oyunu/kelimeler.txt");
 			
 			while(read_file >> word)
 				counter++;
@@ -29,7 +29,7 @@ class Word_finder: public virtual Tanim
 			
 			string word_list[counter];
 			
-			read_file.open("kelimeler.txt");
+			read_file.open("kelime_oyunu/kelimeler.txt");
 			
 			for(int i = 0; read_file >> word; i++)
 				word_list[i] = word;
