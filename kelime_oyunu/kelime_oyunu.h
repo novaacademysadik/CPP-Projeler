@@ -4,7 +4,6 @@
 
 void kelimeOyunuOyna()
 {
-	
 	Kelime_Oyunu k;
 	k.Kelime_Oyunu_Menu();
 }
