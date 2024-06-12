@@ -1,21 +1,26 @@
 #include "Print.h"
 #include "battle.h"
 
+int skor = 0;
+int zorluk;
+int highest;
+int lowest;
+int question = 0;
+int hp = 5;
+		
 class islem_game{
-	private:
-		
-		int highest;
-		int lowest;
-		
-		char chars[4] = {'+','-','/','*'};
+			
+
+	char chars[4] = {'+','-','/','*'};
 		
 		int random_number(int highest, int lowest = 0){
 			return rand() % highest + lowest;
 		}
+		
 	public:
+		
 		void difficulty(string kullanici){
 			int ans;
-			int zorluk;
 			srand(time(0));
 			
 			system("cls");
@@ -47,13 +52,13 @@ class islem_game{
 			
 			print("Oyun Baþlatýlýyor");
 			animate('.');
-			
-			game(kullanici,zorluk);
 		}
 		
-		void game(string kullanici,int zorluk){
-			int hp = 5;
-				
+		public:
+		
+		bool game(){
+			question++;
+
 			int	number;
 			int number2;
 			
@@ -104,7 +109,8 @@ class islem_game{
 				print("Canýn:");
 				print(hp);
 				print("\n\n");
-				print("Soru:");
+				print(question);
+				print(". Soru:");
 				print(number);
 				print(Islem);
 				print(number2);
@@ -112,8 +118,7 @@ class islem_game{
 				p_answer = int_input("\nCevabýn:");
 				
 				if(hp == 0){
-					print("Kaybettin!!!");
-					break;
+					return false;
 				}
 				
 				if(p_answer != answer){
@@ -122,55 +127,32 @@ class islem_game{
 					Sleep(400);
 				}
 				else{
-					print("\nKazandýn!!!\n");
+					print("\nDoðru Cevap!!!\n");
 					Sleep(1000);
-					break;
+					return true;
 				}
 			}while(true);
-			
-			int skor = (hp * 5) * zorluk;
-			
-			string bos;
-			string k_ad;
-			string mevcut_skor;
-			
-			ofstream file("islem_oyunu/islem_skor.txt",ios::app);
-			ifstream ifile("islem_oyunu/islem_skor.txt");
-			
-			string yaz;
-			string yeni_yaz;
-			
-			for(;getline(ifile,bos,'-') && 	getline(ifile,k_ad,'-') && getline(ifile,mevcut_skor,'-');){
-				
-				if(skor > ToInt(mevcut_skor) && k_ad == kullanici){
-					yeni_yaz = "-" + kullanici + "-" + ToStr(skor) + "-\n";	
-				}
-				
-				else if(!check_file("islem_oyunu/islem_skor.txt",kullanici)){
-					yeni_yaz = "-" + kullanici + "-" + ToStr(skor) + "-\n";
-				}
-				else{
-					yaz = "-" + k_ad + "-" + mevcut_skor + "-\n";
-				}
-			}
-			string yeni;
-			
-			yeni = yaz + yeni_yaz;
-			
-			file.clear();
-			
-			file<<yeni;
-			
-			file.close();
-			ifile.close();
 		}	
 };
 
-void islem_oyunu_oyna(string kullanici)
-{
+void islem_oyunu_oyna(string kullanici){
 	islem_game islem;
 	
 	islem.difficulty(kullanici);
+	
+	for(int i = 0; i < (zorluk * 2) + 2; i++){
+		if(!islem.game()){
+			print("Kaybettin!!");
+			Sleep(1000);
+			break;
+		}	
+	}
+	
+	skor = (hp * 5) * zorluk;
+	
+	print("Aldýðýnýz Skor:");
+	print(skor);
+	Sleep(2000);
 }
 
 void savas_oyunu_oyna(){

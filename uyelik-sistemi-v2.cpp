@@ -27,7 +27,6 @@ class Uyelik:public AdminMenu
 			}while(sifreKontrol(b1.sifre) == false);
 		  
 		   
-<<<<<<< HEAD
 		   	kayit("uyeler.txt",b1);
 			   
 			islem_kayit();
@@ -42,10 +41,6 @@ class Uyelik:public AdminMenu
 		   islem_kayit = "-" + b1.kul_ad + "-" + "0" + "-";
 		   
 		   islem_oyunu<<islem_kayit; 
-=======
-		   kayit("uyeler.txt",b1);
-		   
->>>>>>> 34674f19058aeeed133c7b05bde1c47dd2148294
 		}
 		 
 		 bool giris()
@@ -55,7 +50,7 @@ class Uyelik:public AdminMenu
 		 		b1.kul_ad = veriGiris("Kullanýcý Adý[Çýkýþ:0]:",s);
 		 	    b1.sifre = veriGiris("Þifre: ",s);
 		 	    if(!kullaniciKontrol(b1.kul_ad,b1.sifre,"uyeler.txt") && b1.kul_ad != "0")
-		 	        hata("Hatali Giriþ","Hata");
+		 	    hata("Hatali Giriþ","Hata");
 		 		
 			}while(!kullaniciKontrol(b1.kul_ad,b1.sifre,"uyeler.txt") && b1.kul_ad != "0");
 		 	temizle();
@@ -154,7 +149,6 @@ class UyelikSistemi:public UyeMenu
 				 {
 				 	case 1:
 				 		kaydol();
-				 		temizle();
 				 		break;
 				 	case 2:
 					    uyePanel();
