@@ -6,6 +6,7 @@ class Dosya:public Mesaj,public Veri,public Ayar{
 	Bilgi detay;
 	Bilgi user;
 	AdresBilgi adres;
+
 	void kayit(string dosyaAd,Bilgi b)
 	{
 		ofstream dosya(dosyaAd.c_str(),ios::app);
@@ -78,8 +79,7 @@ class Dosya:public Mesaj,public Veri,public Ayar{
 			}	
 			
 		}
-		
-	//	hata("Kiþi bulunamadý ...","HATA");
+
 	
 		return false;
 	}
@@ -346,7 +346,128 @@ class Dosya:public Mesaj,public Veri,public Ayar{
 		
 	}
 	
+		void skor_kayit(string dosyaAd,int yeniSkor)
+		{
+			int adet = skor_sayisi(dosyaAd);
+			
+			Skor skorlar[adet+1];
+			tum_skorlar(skorlar,dosyaAd,adet+1);
+			skor_ayarla(skorlar,yeniSkor,adet);
+			skor_sirala(skorlar,adet);
+			skor_yenile(skorlar,dosyaAd,adet,yeniSkor);
+			
+			cout<<"Skor kayit edildi....\n";
+			Sleep(3000);
+			
+		}
+		
+		int skor_sayisi(string dosyaAd)
+		{
+		    ifstream dosya;
+			dosya.open(dosyaAd.c_str());
+			int adet = 0;
+		   	for(;getline(dosya,veriler[0],'-') && getline(dosya,veriler[1],'-');)
+			{
+				
+			    getline(dosya,veriler[2],'-'); // kul_ad
+			    getline(dosya,veriler[3],'-'); // skor
+			    
+			    adet++;
+					
+			}
+			dosya.close();
+			
+			return adet;
+  		  }
+        
+        void tum_skorlar(Skor skorlar[],string dosyaAd,int adet)
+        {
+        	ifstream dosya;	
+			dosya.open(dosyaAd.c_str());
+			for(int i = 0; i < adet;i++)
+			{
+				getline(dosya,veriler[0],'-'); 
+				getline(dosya,veriler[1],'-');//id 
+			    getline(dosya,veriler[2],'-'); // kul_ad
+			    getline(dosya,veriler[3],'-'); // skor
+			    
+			    skorlar[i].id = intYap(veriler[1]);
+			    skorlar[i].kul_ad = veriler[2];
+			    skorlar[i].skor = intYap(veriler[3]);
+			   
+					
+			}
+			
+			dosya.close();
+			
+		for(int i = 0; i < adet;i++)
+			{   cout<<skorlar[i].id<<endl;
+			    cout<<skorlar[i].kul_ad<<endl;
+			    cout<<skorlar[i].skor<<endl;	
+			}
+		}
 	
-	
+	 void skor_ayarla(Skor skorlar[],int yeniSkor,int adet)
+	 {
+	   
+	 	for(int i = 0; i < adet;i++ )
+	 	{
+	 		if(skorlar[i].kul_ad == user.kul_ad)
+	 		{
+	 			if(skorlar[i].skor < yeniSkor)
+	 			  skorlar[i].skor = yeniSkor;
+			 }
+		 }
+		 
+	 	
+	 }
+    	bool skor_yenile(Skor skorlar[],string dosyaAd,int adet,int yeniSkor){
+		
+		   string kayit;
+		   ofstream dosya(dosyaAd.c_str());
+		   
+		   	if(adet == 1)
+		   	{
+		   		 	dosya<<"-"<<user.id<<"-"<<user.kul_ad<<"-"<<yeniSkor<<"-"<<endl;
+		   		 	return true;
+			 }
+
+	 	   
+		   for(int i = 0; i < adet ; i++)
+		  {
+		  	
+		    	dosya<<"-"<<skorlar[i].id<<"-"<<skorlar[i].kul_ad<<"-"<<skorlar[i].skor<<"-"<<endl;
+		  	
+		   } 
+		   
+	      dosya.close();
+	      
+	      return true;
+		   
+		}
+		
+		
+		
+		void skor_sirala(Skor skorlar[],int adet)
+		{
+			int rez;
+			for(int i = 0; i < adet;i++ )
+		 	{
+		 		for(int j = i+1; j < adet-1;j++ )
+		 		{
+		 			 if(skorlar[i].skor < skorlar[j].skor)
+		 			 {
+		 			 	 rez = skorlar[i].skor;
+		 			 	 skorlar[i].skor = skorlar[j].skor;
+		 			 	 skorlar[j].skor = rez;
+					  }
+		 			 
+				 }
+			 }
+		 
+		}
+		
+		
 	
 };
+

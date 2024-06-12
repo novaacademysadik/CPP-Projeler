@@ -7,14 +7,14 @@
 -0-489-Ali-ali-
 -0-182-SAdýk-sadik-
 -0-935-Yeni Kullanýcý-yeni123-
-<<<<<<< HEAD
 -601-ege-egself-ege123-
 -238-ege-ege-ege123-
-=======
 -551-ferhat-ferhat123-00000-
 -142-ferhatk-ferhatk-12345-
 -868-asd-asdasdasd-00000-
 -347-yasemin-yase-12345-
 -632-sadik-sadik-123456-
 -412-BORA EGE-bora_ege-12345-
->>>>>>> 34674f19058aeeed133c7b05bde1c47dd2148294
+-103-Yeni Ege-yeni123-12345-
+-575-kisi 1-kisi1-12345-
+-906-kisi2-kisi2-12345-

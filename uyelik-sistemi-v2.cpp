@@ -25,13 +25,17 @@ class Uyelik:public AdminMenu
 			{
 			  b1.sifre = veriGiris("Þifre:",s);	
 			}while(sifreKontrol(b1.sifre) == false);
+<<<<<<< HEAD
 		  
 		   
+=======
+
+>>>>>>> 629e7be88afcb19397880efd3126ec91f9acfbd2
 		   	kayit("uyeler.txt",b1);
-			   
-			islem_kayit();
+	
 		}
 		
+<<<<<<< HEAD
 		void islem_kayit(){
 			// islem oyununda skorlarýn tutulabilmesi için gerekli
 		   
@@ -42,9 +46,13 @@ class Uyelik:public AdminMenu
 		   
 		   islem_oyunu<<islem_kayit; 
 		}
+=======
+
+>>>>>>> 629e7be88afcb19397880efd3126ec91f9acfbd2
 		 
 		 bool giris()
 		 {
+		 		
 		 	do
 		 	{
 		 		b1.kul_ad = veriGiris("Kullanýcý Adý[Çýkýþ:0]:",s);
@@ -54,7 +62,7 @@ class Uyelik:public AdminMenu
 		 		
 			}while(!kullaniciKontrol(b1.kul_ad,b1.sifre,"uyeler.txt") && b1.kul_ad != "0");
 		 	temizle();
-		 	
+		 
 		 	if(b1.kul_ad == "0")
 		 	    return false;
 		 	    
