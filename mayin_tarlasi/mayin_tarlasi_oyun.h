@@ -18,15 +18,20 @@ class MayinTarlasi: public Tanim
 		switch(level)
 		{
 			case 1:
+				temizle();
 				return 5;
 			case 2:
+				temizle();
 				return 3;
 			case 3:
+				temizle();
 				return 2;
 			
 			default:
+				temizle();
 				hata("Hatalý bir seçim gerçekleþtirildi!", "HATA");
 		}
+	
 	}
 	
 	void create_map()
@@ -109,6 +114,7 @@ class MayinTarlasi: public Tanim
 			
 			choice = veriGiris("Bir hedef seçiniz: ", i);
 			cout<<endl;
+			
 			for(int i=0; i<size; i++)
 			{
 				for(int j=0; j<size; j++)
@@ -149,6 +155,8 @@ class MayinTarlasi: public Tanim
 			
 			show_score();
 		}
+		
+		temizle();
 	}
 	
 	void calculate_score()
@@ -179,6 +187,7 @@ class MayinTarlasi: public Tanim
 		{
 			system("color 20");
 			text_print("EN YÜKSEK SKORA ULAÞILDI, TEBRÝKLER, " + user.ad + " !");
+			Sleep(1000);
 		}	
 	}
 	
@@ -202,6 +211,7 @@ class MayinTarlasi: public Tanim
 		
 		temizle();
 		text_print("Çýkýþ yapýlýyor...");
+		Sleep(1000);
 	}
 	
 	void save_score(string fileName, Bilgi game) //kullanýcýnýn puanýný txt dosyasýna yazdýrýr
