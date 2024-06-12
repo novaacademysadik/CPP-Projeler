@@ -8,7 +8,8 @@ int lowest;
 int question = 0;
 int hp = 5;
 		
-class islem_game{
+class islem_game:public virtual Tanim
+{
 			
 
 	char chars[4] = {'+','-','/','*'};
@@ -150,7 +151,8 @@ class islem_game{
 				}
 			}while(true);
 		}
-	void islem_oyunu_oyna(){
+	void islem_oyunu_oyna(Bilgi kullanici){
+		user = kullanici;
 		difficulty();
 		
 		srand(time(0));
@@ -165,7 +167,7 @@ class islem_game{
 			}
 			skor = (hp * 5) * zorluk;
 			print("\n");
-			//skor_kayit("islem_oyunu/islem_skor.txt",skor);
+			skor_kayit("islem_oyunu/islem_skor.txt",skor);
 			
 			print("Aldýðýnýz Skor:");
 			print(skor);
@@ -178,10 +180,11 @@ class islem_game{
 	}
 };
 
-void islem_oyna(){
+void islem_oyna(Bilgi kullanici){
+
 	islem_game islem;
 	
-	islem.islem_oyunu_oyna();
+	islem.islem_oyunu_oyna(kullanici);
 }
 
 
