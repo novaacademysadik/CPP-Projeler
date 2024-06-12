@@ -1,25 +1,45 @@
 #include "Print.h"
 #include "battle.h"
 
-class islem_game:public Tanim
-{
-	private:
+int skor = 0;
+int zorluk;
+int highest;
+int lowest;
+int question = 0;
+int hp = 5;
 		
-		int highest;
-		int lowest;
-		
-		char chars[4] = {'+','-','/','*'};
+class islem_game{
+			
+
+	char chars[4] = {'+','-','/','*'};
 		
 		int random_number(int highest, int lowest = 0){
 			return rand() % highest + lowest;
 		}
+		
 	public:
-		void difficulty(Bilgi kullanici){
-			user = kullanici;
+		
+		void selection(){
 			int ans;
-			int zorluk;
-			srand(time(0));
 			
+			do{
+				int_input("1) Oyunu Oyna\n2) Skor Tablosu");
+				
+				if(ans > 3 || ans < 0)
+					print("Hatalı Giriş!!\n");
+				
+			}while(ans > 3 || ans < 0)
+				
+			
+			return ans;
+		}
+		
+		
+		void difficulty(string kullanici){
+			int ans;
+			
+			
+	
 			system("cls");
 			do{
 				ans = int_input("Bir Zorluk Sec!\n1) Kolay\n2) Normal\n3) Zor\nSeçim:");
@@ -49,13 +69,13 @@ class islem_game:public Tanim
 			
 			print("Oyun Başlatılıyor");
 			animate('.');
-			
-			game(zorluk);
 		}
 		
-		void game(int zorluk){
-			int hp = 5;
-				
+		public:
+		
+		bool game(){
+			question++;
+
 			int	number;
 			int number2;
 			
@@ -106,7 +126,8 @@ class islem_game:public Tanim
 				print("Canın:");
 				print(hp);
 				print("\n\n");
-				print("Soru:");
+				print(question);
+				print(". Soru:");
 				print(number);
 				print(Islem);
 				print(number2);
@@ -114,8 +135,7 @@ class islem_game:public Tanim
 				p_answer = int_input("\nCevabın:");
 				
 				if(hp == 0){
-					print("Kaybettin!!!");
-					break;
+					return false;
 				}
 				
 				if(p_answer != answer){
@@ -124,23 +144,43 @@ class islem_game:public Tanim
 					Sleep(400);
 				}
 				else{
-					print("\nKazandın!!!\n");
+					print("\nDoğru Cevap!!!\n");
 					Sleep(1000);
-					break;
+					return true;
 				}
 			}while(true);
-			
-			int skor = (hp * 5) * zorluk;
-	
-			skor_kayit("islem_oyunu/skorlar.txt",skor);
+
+
+
 		}	
 };
 
-void islem_oyunu_oyna(Bilgi kullanici)
-{
+void islem_oyunu_oyna(string kullanici){
 	islem_game islem;
 	
 	islem.difficulty(kullanici);
+	
+	srand(time(0));
+	
+	if(selection == 1){
+		for(int i = 0; i < (zorluk * 2) + 2; i++){
+			if(!islem.game()){
+				print("Kaybettin!!");
+				Sleep(1000);
+				break;
+			}	
+		}
+	
+		skor = (hp * 5) * zorluk;
+	
+		print("Aldığınız Skor:");
+		print(skor);
+		Sleep(2000);
+	}
+	else{
+		print("Yapım Aşamasında");
+		Sleep(1000);
+	}
 }
 
 void savas_oyunu_oyna(){

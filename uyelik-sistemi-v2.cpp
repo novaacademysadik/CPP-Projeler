@@ -25,12 +25,30 @@ class Uyelik:public AdminMenu
 			{
 			  b1.sifre = veriGiris("Þifre:",s);	
 			}while(sifreKontrol(b1.sifre) == false);
+<<<<<<< HEAD
+		  
+		   
+=======
 
+>>>>>>> 629e7be88afcb19397880efd3126ec91f9acfbd2
 		   	kayit("uyeler.txt",b1);
 	
 		}
 		
+<<<<<<< HEAD
+		void islem_kayit(){
+			// islem oyununda skorlarýn tutulabilmesi için gerekli
+		   
+		   string islem_kayit;
+		   ofstream islem_oyunu("islem_oyunu/islem_skor.txt",ios::app);
+		   
+		   islem_kayit = "-" + b1.kul_ad + "-" + "0" + "-";
+		   
+		   islem_oyunu<<islem_kayit; 
+		}
+=======
 
+>>>>>>> 629e7be88afcb19397880efd3126ec91f9acfbd2
 		 
 		 bool giris()
 		 {
@@ -40,7 +58,7 @@ class Uyelik:public AdminMenu
 		 		b1.kul_ad = veriGiris("Kullanýcý Adý[Çýkýþ:0]:",s);
 		 	    b1.sifre = veriGiris("Þifre: ",s);
 		 	    if(!kullaniciKontrol(b1.kul_ad,b1.sifre,"uyeler.txt") && b1.kul_ad != "0")
-		 	        hata("Hatali Giriþ","Hata");
+		 	    hata("Hatali Giriþ","Hata");
 		 		
 			}while(!kullaniciKontrol(b1.kul_ad,b1.sifre,"uyeler.txt") && b1.kul_ad != "0");
 		 	temizle();
@@ -139,7 +157,6 @@ class UyelikSistemi:public UyeMenu
 				 {
 				 	case 1:
 				 		kaydol();
-				 		temizle();
 				 		break;
 				 	case 2:
 					    uyePanel();
