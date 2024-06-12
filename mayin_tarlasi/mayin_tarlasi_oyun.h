@@ -187,7 +187,9 @@ class MayinTarlasi: public Tanim
 		{
 			system("color 20");
 			text_print("EN YÜKSEK SKORA ULAÞILDI, TEBRÝKLER, " + user.ad + " !");
-			Sleep(1000);
+			Sleep(1500);
+			
+			text_print("Skor kaydedildi!..\n");
 		}	
 	}
 	
@@ -203,6 +205,7 @@ class MayinTarlasi: public Tanim
 			add_mine();
 			fill_map();
 			game_start();
+			skor_kayit("mayin_tarlasi/skorlar.txt",score);
 			
 			ans = soru("Tekrar oynamak ister misiniz?","MAYIN TARLASI");
 			system("color 07");
@@ -211,7 +214,7 @@ class MayinTarlasi: public Tanim
 		
 		temizle();
 		text_print("Çýkýþ yapýlýyor...");
-		Sleep(1000);
+		Sleep(1500);
 	}
 	
 	void save_score(string fileName, Bilgi game) //kullanýcýnýn puanýný txt dosyasýna yazdýrýr
@@ -226,52 +229,11 @@ class MayinTarlasi: public Tanim
 	
 		file.close();
 	}
-	/*
-	void show_highest_score(string kulAd) // kullanýcýlar arasýndan en yüksek skora ulaþan kullanýcý adý ve puaný gösterir
-	{
-		ifstream file;
-		file.open("mayin-tarlasi.txt");
-		
-		string veriler[3];
-		
-		while(getline(file,veriler[0],'-') && getline(file,veriler[1],'-'))
-		{
-			getline(dosya,veriler[2],'-'); // score
-			
-		   if(id == 0)
-			{
-				if(veriler[1] == kulAd )
-			    {
-			    	score = veriler[4];
-					return true;
-				}
-				  
-			}
-			else
-			{
-				if(veriler[1] == stringYap(id) )
-				{
-					detay.id = intYap(veriler[1] );
-					detay.kul_ad = veriler[3];
-					detay.ad = veriler[2];
-					detay.sifre = veriler[4];
-					
-					return true;
-				}
-				  
-			}	
-			
-		}
-		
-	//	hata("Kiþi bulunamadý ...","HATA");
 	
-		return false;
-	}
-	
-	
-	*/
 	void show_user_score() // kullanýcýnýn son puanýný gösterir
 	{
+		
+			
 		
 	}
 	
