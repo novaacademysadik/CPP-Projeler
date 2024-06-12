@@ -17,7 +17,7 @@ class Oyun:public virtual Tanim
 			 	switch(secim)
 			 	{
 			 		case 1:
-			 		    kelimeOyunuOyna();
+			 		    kelimeOyunuOyna(user);
 			 			break;
 			 		case 2:
 			 		    islem_oyunu_oyna(user);
