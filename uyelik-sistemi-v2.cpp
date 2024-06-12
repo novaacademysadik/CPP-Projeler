@@ -180,9 +180,9 @@ class UyelikSistemi:public UyeMenu
 
 int main()
 {
-   UyelikSistemi uye;
-   uye.menu();
-   
+	UyelikSistemi a;
+	a.menu();
+ 
 	return 0;
 }
 

@@ -149,6 +149,9 @@ class islem_game{
 					return true;
 				}
 			}while(true);
+
+
+
 		}	
 };
 
