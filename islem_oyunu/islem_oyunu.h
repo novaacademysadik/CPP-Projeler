@@ -19,10 +19,27 @@ class islem_game{
 		
 	public:
 		
+		void selection(){
+			int ans;
+			
+			do{
+				int_input("1) Oyunu Oyna\n2) Skor Tablosu");
+				
+				if(ans > 3 || ans < 0)
+					print("Hatalı Giriş!!\n");
+				
+			}while(ans > 3 || ans < 0)
+				
+			
+			return ans;
+		}
+		
+		
 		void difficulty(string kullanici){
 			int ans;
-			srand(time(0));
 			
+			
+	
 			system("cls");
 			do{
 				ans = int_input("Bir Zorluk Sec!\n1) Kolay\n2) Normal\n3) Zor\nSeçim:");
@@ -140,19 +157,27 @@ void islem_oyunu_oyna(string kullanici){
 	
 	islem.difficulty(kullanici);
 	
-	for(int i = 0; i < (zorluk * 2) + 2; i++){
-		if(!islem.game()){
-			print("Kaybettin!!");
-			Sleep(1000);
-			break;
-		}	
+	srand(time(0));
+	
+	if(selection == 1){
+		for(int i = 0; i < (zorluk * 2) + 2; i++){
+			if(!islem.game()){
+				print("Kaybettin!!");
+				Sleep(1000);
+				break;
+			}	
+		}
+	
+		skor = (hp * 5) * zorluk;
+	
+		print("Aldığınız Skor:");
+		print(skor);
+		Sleep(2000);
 	}
-	
-	skor = (hp * 5) * zorluk;
-	
-	print("Aldığınız Skor:");
-	print(skor);
-	Sleep(2000);
+	else{
+		print("Yapım Aşamasında");
+		Sleep(1000);
+	}
 }
 
 void savas_oyunu_oyna(){
