@@ -3,8 +3,6 @@ class Word_finder: public virtual Tanim
 	private:
 			string word;
 			int counter, random_number, no;
-
-			
 			char letter;
 			string hidden_word, guess;
 			int life, score;
@@ -51,10 +49,15 @@ class Word_finder: public virtual Tanim
 			return hidded_word;
 		}
 		
-		void word_find() // Kelime Bul Oyun Fonksiyonu
+		void word_find(Bilgi u) // Kelime Bul Oyun Fonksiyonu
 		{
+			int question;
+			user = u;
 			do
-			{
+			{				
+				if(question == IDYES)
+					temizle();
+				
 				word = random_word();
 				hidden_word = hide_word(word);
 				
@@ -64,18 +67,21 @@ class Word_finder: public virtual Tanim
 				
 				life = (word.size()/2) + 1;
 				
+
 				
 				for(int i = 0; i < (word.size()/2)+1; i++)
 				{
 					text_print("Tahmin Hakkýnýz: ");
 					cout<< life << endl;
-					
+
 					life--;
-					
-					letter = veriGiris("Kelimeyi tahmin ettiyseniz '1' giriniz)\nBir Harf girin: ", c);
-					
+
+					letter = veriGiris("Kelimeyi tahmin ettiyseniz '1' giriniz)\nBir Harf girin: ", c);	
+	
 					if(letter =='1')
 						break;
+					else
+						temizle();
 						
 					for(int j = 0; j < word.size(); j++)
 					{
@@ -101,30 +107,38 @@ class Word_finder: public virtual Tanim
 					
 					score = life * 10 + 10;
 					cout<< score << endl;
-//					save_score(user.ad,score);
+					save_score(user.kul_ad,score);
+					
+//					skor_kayit("kelime_oyunu/kelime_oyunu_skor.txt",score);
+					Sleep(1000);
+
 				}
 
-
-				else	
-					text_print("Maalesef Yanlýþ!\nDoðru Cevap: " + word + "\n");
-					
-				
-			}while(soru("Tekrar Oynamak Ýster Misiniz?","OYUN SONU") == IDYES);
 			
-			text_print("Oyundan Çýkýþ Yapýldý...\n\n");
-			Sleep(500);
+				else	
+					text_print("Malesef Yanlýþ!\nDoðru Cevap: " + word + "\n");
+					
+				question = soru("Tekrar Oynamak Ýster Misiniz?","OYUN SONU");
+				
+			}while(question == IDYES);
+			
+			text_print("Kelime Oyunu Menüsü Açýlýyor...\n\n");
+			Sleep(1000);
 			temizle();
 		}
 		
 		
-//		void save_score(string user,int score) // 
-//		{
-//			ofstream print_score("kelime_oyunu_skor.txt");
-//			print_score.open("kelime_oyunu_skor.txt");
-//			
-//			print_score << user << "-" << score << "-" << endl;
-//			
-//			print_score.close();
-//		}
+		void save_score(string username, int score) // 
+		{
+			ofstream print_score("kelime_oyunu/kelime_oyunu_skor.txt", ios::app);
+			print_score.close();
+			
+			print_score.open("kelime_oyunu/kelime_oyunu_skor.txt");
+
+			print_score << username << " " << score << endl;
+			
+			print_score.close();
+
+		}
 
 };

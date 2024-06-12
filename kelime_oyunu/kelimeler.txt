@@ -3,8 +3,9 @@ araba
 okul
 kalem
 bilgisayar
-masa
-kalem
-masa
-bilgisayar
 kahve
+masa
+kahve
+uçak
+kulaklık
+ekran
