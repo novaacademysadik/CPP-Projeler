@@ -8,7 +8,7 @@ int lowest;
 int question = 0;
 int hp = 5;
 		
-class islem_game{
+class islem_game:public virtual Tanim{
 			
 	char chars[4] = {'+','-','/','*'};
 		
