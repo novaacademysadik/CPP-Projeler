@@ -422,12 +422,6 @@ class Dosya:public Mesaj,public Veri,public Ayar{
 		
 		   ofstream dosya(dosyaAd.c_str());
 	 	   
-	 	   	 
-			for(int i = 0; i < adet;i++)
-			   cout<<skorlar[i].skor<<endl;
-			   
-	 	   	   system("pause");
-	 	   
 		   for(int i = 0; i < adet ; i++)
 		  {
 		  	

@@ -1,13 +1,14 @@
 #include "kelime_oyunu/kelime_oyunu.h"
 #include "islem_oyunu/islem_oyunu.h"
 #include "mayin_tarlasi/mayin_tarlasi_oyunu.h"
+#include "taskagitmakas/taskagitmakas.h"
 
 class Oyun:public virtual Tanim
 {
 	public:
 		void oyunMenu()
 		{
-			string secimler[] = {"Kelime Oyunu","Ýþlem Oyunu","Savaþ Oyunu","Mayýn Tarlasý"};
+			string secimler[] = {"Kelime Oyunu","Ýþlem Oyunu","Savaþ Oyunu","Mayýn Tarlasý","Taþ Kaðýt Makas"};
          bool h = false, cikis = false;
 			 do
 			 {
@@ -28,6 +29,9 @@ class Oyun:public virtual Tanim
 			 		case 4:
 			 			MayinTarlasi(user);
 			 			break;
+			 		case 5:
+			 			TasKagitMakasOyna();
+			 			break;	
 			 		case 0:
 					    cikis = true;
 						break;

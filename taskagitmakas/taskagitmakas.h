@@ -1,6 +1,4 @@
-#include "inc.h"
-
-class TasKagitMakas
+class TasKagitMakas:public virtual Tanim
 {
     private:
         int kulSecim;
@@ -14,6 +12,7 @@ class TasKagitMakas
         }
 
     public:
+    	int round;
     	
         void kullaniciSeciminiAl()
         {
@@ -36,12 +35,12 @@ class TasKagitMakas
             cout<<"PC secimi: "<<pcSecim<<endl;
         }
 
-        int round()
+        void roundAl()
         {
-            int round;
+         
             cout<<"Kaç round oynamak istersiniz? ";
             cin>>round;
-            return round;
+           
         }
 
         void kazanan()
@@ -66,6 +65,10 @@ class TasKagitMakas
                 cout<<"Kullanýcý "<<kulPuan<<" - "<<pcPuan<<" Bilgisayar"<<endl;
                 cout<<"--------------------\n";
             }
+            
+            int skor = (kulPuan * 3) + (round - kulPuan - pcPuan) ;
+            skor_kayit("taskagitmakas/skorlar.txt",skor);
+            
         }
 		
         void genelKazanan()
@@ -87,23 +90,22 @@ class TasKagitMakas
         
         void oyunuBaslat()
         {
-        	set();
+
         	
 		    int cevap;
 			do
 			{
-				TasKagitMakas oyun;
-			    srand(time(0));
-			    int round = oyun.round();
+			
+		       roundAl();
 				
 			    for (int i = 0; i < round; i++)
 			    {
-			        oyun.kullaniciSeciminiAl();
-			        oyun.pcSeciminiAl();
-			        oyun.kazanan();
+			        kullaniciSeciminiAl();
+			        pcSeciminiAl();
+			        kazanan();
 			    }
 			
-			    oyun.genelKazanan();
+			    genelKazanan();
 			    
 			    cevap = MessageBox(0,"tekrar denemek istermisiniz","yeni oyun",MB_YESNO);
 			    system("cls");
@@ -112,7 +114,7 @@ class TasKagitMakas
 		}
 };
 
-int main()
+int TasKagitMakasOyna()
 {
     TasKagitMakas oyun;
     oyun.oyunuBaslat();	
