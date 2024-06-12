@@ -1,6 +1,3 @@
-#include "../inc.h"
-
-
 class Faktoriyel:public virtual Tanim
 {
 	public:
@@ -67,7 +64,7 @@ class Faktoriyel:public virtual Tanim
 		
 };
 
-int main()
+int faktoryelHesap()
 {
 	
 	Faktoriyel f1;

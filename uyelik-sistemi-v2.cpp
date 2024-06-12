@@ -83,7 +83,7 @@ class Uyelik:public AdminMenu
 		  }
 };
 
-class UyeMenu:public Uyelik,public Adres,public Oyun
+class UyeMenu:public Uyelik,public Adres,public Oyun,public Uygulama
 {
 	public:
 		void uyePanel()
@@ -112,7 +112,11 @@ class UyeMenu:public Uyelik,public Adres,public Oyun
 			 	{
 			 		case 1:
 			 		     adresMenu();
-			 			break;
+			 		  break;
+					 case 2:
+			 			 uygulamaMenu();
+			 			 break;
+			 		
 			 		case 3:
 			 			 oyunMenu();
 			 			 break;

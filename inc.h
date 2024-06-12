@@ -62,7 +62,7 @@ class Tanim:public Dosya
 
 #include "adres-sistemi.h"
 #include "oyunlar.h"
-
+#include "uygulamalar.h"
 
 
 

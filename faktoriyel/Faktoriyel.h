@@ -1,6 +1,3 @@
-#include "../inc.h"
-
-
 class Faktoriyel:public virtual Tanim
 {
 	public:
@@ -66,5 +63,14 @@ class Faktoriyel:public virtual Tanim
 	}
 		
 };
+int faktoryelHesap()
+{
+	
+	Faktoriyel f1;
+	
+	f1.baslangic();
+	f1.sayiAlma();
+	return 0;
+}
 
 
