@@ -18,7 +18,7 @@ class islem_game{
 		
 	public:
 		
-		void selection(){
+		int selection(){
 			int ans;
 			
 			do{
@@ -27,7 +27,7 @@ class islem_game{
 				if(ans > 3 || ans < 0)
 					print("Hatalı Giriş!!\n");
 				
-			}while(ans > 3 || ans < 0)
+			}while(ans > 3 || ans < 0);
 				
 			
 			return ans;
@@ -115,7 +115,7 @@ class islem_game{
 				answer = number / number2;
 			}
 			
-			else{
+			else if(islem == 3){
 				Islem = '*';
 				answer = number * number2;
 			}
@@ -148,9 +148,6 @@ class islem_game{
 					return true;
 				}
 			}while(true);
-
-
-
 		}	
 };
 
@@ -161,7 +158,7 @@ void islem_oyunu_oyna(string kullanici){
 	
 	srand(time(0));
 	
-	if(selection == 1){
+	if(islem.selection() == 1){
 		for(int i = 0; i < (zorluk * 2) + 2; i++){
 			if(!islem.game()){
 				print("Kaybettin!!");
@@ -171,7 +168,9 @@ void islem_oyunu_oyna(string kullanici){
 		}
 	
 		skor = (hp * 5) * zorluk;
-	
+		
+		skor_kayit("islem_oyunu/islem_skor.txt",skor);
+		
 		print("Aldığınız Skor:");
 		print(skor);
 		Sleep(2000);
