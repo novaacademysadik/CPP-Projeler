@@ -8,8 +8,9 @@ int lowest;
 int question = 0;
 int hp = 5;
 		
-class islem_game:public virtual Tanim{
+class islem_game{
 			
+
 	char chars[4] = {'+','-','/','*'};
 		
 		int random_number(int highest, int lowest = 0){
@@ -34,7 +35,7 @@ class islem_game:public virtual Tanim{
 		}
 		
 		
-		void difficulty(string kullanici){
+		void difficulty(){
 			int ans;
 			
 			
@@ -148,38 +149,41 @@ class islem_game:public virtual Tanim{
 					return true;
 				}
 			}while(true);
+		}
+	void islem_oyunu_oyna(){
+		difficulty();
+		
+		srand(time(0));
+		
+		if(selection() == 1){
+			for(int i = 0; i < (zorluk * 2) + 2; i++){
+				if(!game()){
+					print("Kaybettin!!");
+					Sleep(1000);
+					break;
+				}	
+			}
+			skor = (hp * 5) * zorluk;
+			print("\n");
+			//skor_kayit("islem_oyunu/islem_skor.txt",skor);
+			
+			print("Aldýðýnýz Skor:");
+			print(skor);
+			Sleep(2000);
+		}
+		else{
+			print("Yapým Aþamasýnda");
+			Sleep(1000);
 		}	
+	}
 };
 
-void islem_oyunu_oyna(string kullanici){
+void islem_oyna(){
 	islem_game islem;
 	
-	islem.difficulty(kullanici);
-	
-	srand(time(0));
-	
-	if(islem.selection() == 1){
-		for(int i = 0; i < (zorluk * 2) + 2; i++){
-			if(!islem.game()){
-				print("Kaybettin!!");
-				Sleep(1000);
-				break;
-			}	
-		}
-	
-		skor = (hp * 5) * zorluk;
-		
-		skor_kayit("islem_oyunu/islem_skor.txt",skor);
-		
-		print("Aldýðýnýz Skor:");
-		print(skor);
-		Sleep(2000);
-	}
-	else{
-		print("Yapým Aþamasýnda");
-		Sleep(1000);
-	}
+	islem.islem_oyunu_oyna();
 }
+
 
 void savas_oyunu_oyna(){
 	savas_baslat();
