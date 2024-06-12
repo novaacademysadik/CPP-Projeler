@@ -9,3 +9,7 @@ kahve
 uçak
 kulaklýk
 ekran
+yazýlým
+projeksiyon
+klavye
+telefon

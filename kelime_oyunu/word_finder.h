@@ -107,14 +107,12 @@ class Word_finder: public virtual Tanim
 					
 					score = life * 10 + 10;
 					cout<< score << endl;
-					save_score(user.kul_ad,score);
-					
-//					skor_kayit("kelime_oyunu/kelime_oyunu_skor.txt",score);
+
+					skor_kayit("kelime_oyunu/kelime_oyunu_skor.txt",score);
 					Sleep(1000);
 
 				}
 
-			
 				else	
 					text_print("Malesef Yanlýþ!\nDoðru Cevap: " + word + "\n");
 					
@@ -126,19 +124,4 @@ class Word_finder: public virtual Tanim
 			Sleep(1000);
 			temizle();
 		}
-		
-		
-		void save_score(string username, int score) // 
-		{
-			ofstream print_score("kelime_oyunu/kelime_oyunu_skor.txt", ios::app);
-			print_score.close();
-			
-			print_score.open("kelime_oyunu/kelime_oyunu_skor.txt");
-
-			print_score << username << " " << score << endl;
-			
-			print_score.close();
-
-		}
-
 };
