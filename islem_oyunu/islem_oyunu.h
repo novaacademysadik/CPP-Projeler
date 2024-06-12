@@ -132,7 +132,7 @@ class islem_game:public Tanim
 			
 			int skor = (hp * 5) * zorluk;
 	
-			skor_kayit("islem_oyunu/skorlar.txt",500);
+			skor_kayit("islem_oyunu/skorlar.txt",skor);
 		}	
 };
 
