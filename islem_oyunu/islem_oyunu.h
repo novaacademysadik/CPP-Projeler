@@ -10,7 +10,6 @@ int hp = 5;
 		
 class islem_game{
 			
-
 	char chars[4] = {'+','-','/','*'};
 		
 		int random_number(int highest, int lowest = 0){
