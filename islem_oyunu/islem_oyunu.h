@@ -116,7 +116,7 @@ class islem_game{
 				answer = number / number2;
 			}
 			
-			else{
+			else if(islem == 3){
 				Islem = '*';
 				answer = number * number2;
 			}
@@ -169,7 +169,9 @@ void islem_oyunu_oyna(string kullanici){
 		}
 	
 		skor = (hp * 5) * zorluk;
-	
+		
+		skor_kayit("islem_oyunu/islem_skor.txt",skor);
+		
 		print("Aldýðýnýz Skor:");
 		print(skor);
 		Sleep(2000);
