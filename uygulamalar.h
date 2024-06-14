@@ -1,12 +1,13 @@
 #include "faktoriyel/Faktoriyel.h"
 #include "hesapmakinesi/hesap_makinesi.h"
+#include "fiyat_hesaplama/fiyat_hesaplama.h"
 
 class Uygulama:public virtual Tanim
 {
 	public:
 		void uygulamaMenu()
 		{
-			string secimler[] = {"Faktöriyel Hesap","Hesap Makinesi"};
+			string secimler[] = {"Faktöriyel Hesap","Hesap Makinesi","Fiyat Hesaplama"};
          bool h = false, cikis = false;
 			 do
 			 {
@@ -21,7 +22,9 @@ class Uygulama:public virtual Tanim
 			 		case 2:
 			 		    hesapMakinasi();
 			 			break;	
-			
+			    	case 3:
+			 		    fiyatHesapla(user);
+			 			break;
 			 		case 0:
 					    cikis = true;
 						break;

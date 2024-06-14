@@ -1,5 +1,3 @@
-#include "../inc.h"
-
 class Fiyat: public Tanim
 {
 	public:
@@ -45,7 +43,7 @@ class Fiyat: public Tanim
 				text_print("Uygulamalar Menüsü'ne dönülüyor...");
 
 				
-		}while(exit || cevap == IDYES);
+		}while(exit && cevap == IDYES);
 	}
 
 	void kdv_hesapla()
@@ -107,3 +105,9 @@ class Fiyat: public Tanim
 		return true;	
 	}
 };
+
+void fiyatHesapla(Bilgi b)
+{
+	Fiyat f;
+	f.fiyat_hesapla_menu(b);
+}
