@@ -292,11 +292,33 @@ class savas_oyunu : public assasin , public warrior , public virtual Tanim{
 	}
 	
 	void savas(Bilgi kullanici){
-		savas_baslat();
+		
+		user = kullanici;
+		
+		int ans;
+		
+		do{
+			ans = int_input("1) Savas Oyunu\n2) Skor Tablosu\nSeçim:");
+			
+			if(ans > 2 || ans < 0)
+				print("\nHatalı Giriş!!\n");
+			
+		}while(ans > 2 || ans < 0);
+		
+		if(ans == 1){
+			savas_baslat();
+			
+			print("Skorun:");
+			print(skor);
+			print("\n");
+			
+			skor_kayit("savas_oyunu/savas_skor.txt",skor);
+		}
 	
-		skor_kayit("islem_oyunu/savas_skor.txt",skor);
+		else{
+			skor_tablosu("savas_oyunu/savas_skor.txt");
+		}
 	}
-	
 };
 
 void savas_oyna(Bilgi kullanici){
@@ -305,5 +327,3 @@ void savas_oyna(Bilgi kullanici){
 	
 	oyun.savas(kullanici);
 }
-
-
