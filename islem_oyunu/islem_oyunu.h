@@ -173,8 +173,7 @@ class islem_game:public virtual Tanim
 			Sleep(2000);
 		}
 		else{
-			print("Yapým Aþamasýnda");
-			Sleep(1000);
+			skor_tablosu("islem_oyunu/islem_skor.txt");
 		}	
 	}
 };
