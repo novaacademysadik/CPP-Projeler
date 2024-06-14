@@ -1,3 +1,6 @@
+
+int skor = 0;
+
 class warrior{
 	public:
 	int max_w_hp = 110;	
@@ -21,7 +24,7 @@ class assasin{
 		
 };	
 	
-class champions : public assasin , public warrior{
+class savas_oyunu : public assasin , public warrior{
 	
 	public:
 		
@@ -127,144 +130,174 @@ class champions : public assasin , public warrior{
 			}
 		}		
 	}
+	
+	void savas_baslat(){
+		int character;
+		
+		system("cls");
+		
+		do{
+			character = int_input("Bir Karakter Seç\n1)Suikastçi\n2)Savaþçý","endl");
+			
+			if(character == 1){
+				print("Suikastçi Seçildi!");
+				break;
+			}
+			
+			else if(character == 2){
+				print("Savaþçý Seçildi!");
+				break;
+			}
+			
+			else
+				print("Hatalý Giriþ!");
+		}while(true);
+	
+		mainloop(character);
+	}
+	
+	void mainloop(int character){
+		
+		bool turn;
+		
+		int opp;
+		int use;
+			
+		if(character == 1){
+			opp = 2;
+			turn = true;
+		}
+		else
+			opp = 1;
+			turn = false;		
+			
+		for(;true;){
+			if(character == 1 && w_hp <= 0){
+				print("Kazandýn!!!");
+				print("\n\nSkorun:");
+				
+				skor = 100;
+				
+				print(skor);
+				
+				break;
+			}
+			else if(character == 1 && a_hp <= 0){
+				print("Kaybettin!!!");
+				
+				skor = (w_hp * -1) + 40;
+				if(skor < 0)
+					skor = 0;
+				
+				print("\n\nSkorun:");
+				print(skor);
+				
+				break;
+			}
+			
+			else if(character == 2 && w_hp <= 0){
+				print("Kaybettin!!!");
+				
+				skor = (a_hp * -1) + 40;
+				if(skor < 0)
+					skor = 0;
+				
+				print("\n\nSkorun:");
+				print(skor);
+				
+				break;
+			}
+			
+			else if(character == 2 && a_hp <= 0){
+				print("Kazandýn!!!");
+				print("\n\nSkorun:");
+				
+				skor = 100;
+				
+				print(skor)
+				
+				break;
+			}
+			
+			print("\n\nSuikastçinin Caný:");
+			print(a_hp);
+			
+			print("\nSavaþçýnýn Caný:");
+			print(w_hp);
+	
+			print("\n");
+			
+			if(turn){
+				do{
+					use = int_input("\n\n1)Saldýr\n2)Zýrhýný Güçlendir\n3)Ýksir Ýç","endl");
+					if(use == 1){
+						attack(character);
+	
+						turn = false;
+						break;
+					}
+						
+					else if(use == 2){
+						guard(character);
+						
+						print("Zýrhýn Arttý!\n");
+						 
+						turn = false;
+						break;
+					}
+						
+					else if(use == 3){
+						use_pot(character);
+	
+						turn = false;
+						break;
+					}
+						
+					else
+						print("Hatalý Giriþ\n");
+				}while(true);
+			}
+			else{
+				
+				if(opp == 2 && w_hp < max_w_hp / 2 && w_pot >= 1){
+					use_pot(opp);
+					
+					turn = true;
+				}
+				
+				else if(opp == 2 && w_hp > w_hp / 2){
+					attack(opp);
+					
+					
+					turn = true;
+				}	
+				
+				else if(opp == 1 && a_hp < max_a_hp / 2 && a_pot >= 1){
+					use_pot(opp);
+					
+					turn = true;
+				}
+				
+				else{
+					attack(opp);
+					
+					print("Rakibin Saldýrdý\n");
+					
+					turn = true;
+				}	
+			}
+			Sleep(2000);
+			system("cls");			
+		}
+	}
+	
 };
 
-void mainloop(int character);
-
-void savas_baslat(){
-	int character;
+void savas_oyna(Bilgi kullanici){
+	savas_oyunu oyun;
 	
-	system("cls");
-	
-	do{
-		character = int_input("Bir Karakter Seç\n1)Suikastçi\n2)Savaþçý","endl");
-		
-		if(character == 1){
-			print("Suikastçi Seçildi!");
-			break;
-		}
-		
-		else if(character == 2){
-			print("Savaþçý Seçildi!");
-			break;
-		}
-		
-		else
-			print("Hatalý Giriþ!");
-	}while(true);
-	
-	mainloop(character);
+	oyun.savas_baslat()
 }
-
-void mainloop(int character){
-	champions champ;
-	
-	bool turn;
-	
-	int opp;
-	int use;
-		
-	if(character == 1){
-		opp = 2;
-		turn = true;
-	}
-	else
-		opp = 1;
-		turn = false;		
-		
-	for(;true;){
-		if(character == 1 && champ.w_hp <= 0){
-			print("Kazandýn!!!");
-			break;
-		}
-		else if(character == 1 && champ.a_hp <= 0){
-			print("Kaybettin!!!");
-			break;
-		}
-		
-		else if(character == 2 && champ.w_hp <= 0){
-			print("Kaybettin!!!");
-			break;
-		}
-		
-		else if(character == 2 && champ.a_hp <= 0){
-			print("Kaybettin!!!");
-			break;
-		}
-		
-		print("\n\nSuikastçinin Caný:");
-		print(champ.a_hp);
-		
-		print("\nSavaþçýnýn Caný:");
-		print(champ.w_hp);
-
-		print("\n");
-		
-		if(turn){
-			do{
-				use = int_input("\n\n1)Saldýr\n2)Zýrhýný Güçlendir\n3)Ýksir Ýç","endl");
-				if(use == 1){
-					champ.attack(character);
-
-					turn = false;
-					break;
-				}
-					
-				else if(use == 2){
-					champ.guard(character);
-					
-					print("Zýrhýn Arttý!\n");
-					 
-					turn = false;
-					break;
-				}
-					
-				else if(use == 3){
-					champ.use_pot(character);
-
-					turn = false;
-					break;
-				}
-					
-				else
-					print("Hatalý Giriþ\n");
-			}while(true);
-		}
-		else{
-			
-			if(opp == 2 && champ.w_hp < champ.max_w_hp / 2 && champ.w_pot >= 1){
-				champ.use_pot(opp);
-				
-				turn = true;
-			}
-			
-			else if(opp == 2 && champ.w_hp > champ.w_hp / 2){
-				champ.attack(opp);
-				
-				
-				turn = true;
-			}	
-			
-			else if(opp == 1 && champ.a_hp < champ.max_a_hp / 2 && champ.a_pot >= 1){
-				champ.use_pot(opp);
-				
-				turn = true;
-			}
-			
-			else{
-				champ.attack(opp);
-				
-				print("Rakibin Saldýrdý\n");
-				
-				turn = true;
-			}	
-		}
-		Sleep(2000);
-		system("cls");			
-	}
-}
-
-
 
 
 
