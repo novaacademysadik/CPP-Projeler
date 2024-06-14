@@ -188,6 +188,10 @@ void islem_oyna(Bilgi kullanici){
 }
 
 
-void savas_oyunu_oyna(){
-	savas_baslat();
+void savas_oyna(Bilgi kullanici){
+	savas_oyunu oyun;
+	
+	oyun.savas_baslat();
+	
+	skor_kayit("islem_oyunu/savas_skor.txt",skor);
 }
