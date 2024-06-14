@@ -1,1 +1,1 @@
-
+Taş kağıt makas
