@@ -24,7 +24,7 @@ class assasin{
 		
 };	
 	
-class savas_oyunu : public assasin , public warrior{
+class savas_oyunu : public assasin , public warrior , public virtual Tanim{
 	
 	public:
 		
@@ -214,7 +214,7 @@ class savas_oyunu : public assasin , public warrior{
 				
 				skor = 100;
 				
-				print(skor)
+				print(skor);
 				
 				break;
 			}
@@ -291,8 +291,19 @@ class savas_oyunu : public assasin , public warrior{
 		}
 	}
 	
+	void savas(Bilgi kullanici){
+		savas_baslat();
+	
+		skor_kayit("islem_oyunu/savas_skor.txt",skor);
+	}
+	
 };
 
-
+void savas_oyna(Bilgi kullanici){
+	
+	savas_oyunu oyun;
+	
+	oyun.savas(kullanici);
+}
 
 

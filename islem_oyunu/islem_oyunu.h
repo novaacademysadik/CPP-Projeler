@@ -1,7 +1,6 @@
 #include "Print.h"
-#include "battle.h"
 
-
+int skorr = 0;
 int zorluk;
 int highest;
 int lowest;
@@ -165,12 +164,12 @@ class islem_game:public virtual Tanim
 					break;
 				}	
 			}
-			skor = (hp * 5) * zorluk;
+			skorr = (hp * 5) * zorluk;
 			print("\n");
-			skor_kayit("islem_oyunu/islem_skor.txt",skor);
+			skor_kayit("islem_oyunu/islem_skor.txt",skorr);
 			
 			print("Aldýðýnýz Skor:");
-			print(skor);
+			print(skorr);
 			Sleep(2000);
 		}
 		else{
@@ -188,10 +187,4 @@ void islem_oyna(Bilgi kullanici){
 }
 
 
-void savas_oyna(Bilgi kullanici){
-	savas_oyunu oyun;
-	
-	oyun.savas_baslat();
-	
-	skor_kayit("islem_oyunu/savas_skor.txt",skor);
-}
+

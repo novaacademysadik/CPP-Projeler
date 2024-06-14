@@ -2,6 +2,7 @@
 #include "islem_oyunu/islem_oyunu.h"
 #include "mayin_tarlasi/mayin_tarlasi_oyunu.h"
 #include "taskagitmakas/taskagitmakas.h"
+#include "savas_oyunu/battle.h"
 
 class Oyun:public virtual Tanim
 {
@@ -24,7 +25,7 @@ class Oyun:public virtual Tanim
 			 		    islem_oyna(user);
 			 			break;	
 			 		case 3:
-			 			savas_oyunu_oyna();
+			 			savas_oyna(user);
 			 			break;
 			 		case 4:
 			 			MayinTarlasi(user);
