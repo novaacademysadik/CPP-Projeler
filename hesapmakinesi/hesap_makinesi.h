@@ -43,6 +43,7 @@ class HesapMakinesi:public virtual Tanim
 	}
 	void topla()
 	{
+		cevap = 0;
 		temizle();
 		//do{
 			cout<<"islem Sonucunu Görmek Için ( 0 ) 'e basýn\n";
@@ -72,6 +73,7 @@ class HesapMakinesi:public virtual Tanim
 	}
 	void cikar()
 	{
+		cevap = 0;
 		temizle();
 		//do{
 			cevap = 0;
@@ -102,6 +104,7 @@ class HesapMakinesi:public virtual Tanim
 	}
 	void bolme()
 	{
+		cevap = 1;
 		temizle();
 		//do{
 			cout<<"islem Sonucunu Görmek Için ( 1 ) 'e basýn\n";
@@ -131,6 +134,8 @@ class HesapMakinesi:public virtual Tanim
 	}
 	void carpma()
 	{
+		cevap = 1;
+
 		temizle();
 		//do{
 			cout<<"islem Sonucunu Görmek Için ( 1 ) 'e basýn\n";
