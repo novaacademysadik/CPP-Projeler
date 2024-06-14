@@ -501,21 +501,80 @@ class Dosya:public Mesaj,public Veri,public Ayar{
 			return false;
 		}
 		
+		void son_skor_goster(string dosyaAd)
+		{
+			ifstream dosya;	
+			dosya.open(dosyaAd.c_str());
+			int adet = skor_sayisi(dosyaAd);
+			bool sonuc;
+			
+			for(int i = 0; i < adet;i++)
+			{
+				sonuc = false;
+				getline(dosya,veriler[0],'-'); 
+				getline(dosya,veriler[1],'-'); //id 
+			    getline(dosya,veriler[2],'-'); // kul_ad
+			    getline(dosya,veriler[3],'-'); // skor	
+			    
+			    if(veriler[2] == user.kul_ad)
+			    {
+			    	text_print("Son skorunuz: " + veriler[3]);
+			    	Sleep(1000);
+					break;	
+				}
+				
+				else
+					sonuc = true;
+			}
+			
+			if(sonuc)
+			{
+				text_print("Kayýtlý skor bulunamadý...");
+				Sleep(1000);
+			}
+
+			dosya.close();
+		}
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+		void skor_tablosu(string dosyaAd)
+		{
+			ifstream dosya;
+			dosya.open(dosyaAd.c_str());
+			
+			int adet = skor_sayisi(dosyaAd);
+			string rez[3];
+			string bos;
+			Skor skorlar[adet];
+			
+			for(int i = 0; i<adet; i++)
+			{
+				getline(dosya,bos,'-'); 
+				getline(dosya,rez[0],'-'); //id
+			    getline(dosya,rez[1],'-'); // kul_ad
+			    getline(dosya,rez[2],'-'); // skor
+			    
+			    skorlar[i].id = intYap(rez[0]);  //id 
+			    skorlar[i].kul_ad = rez[1];          // kul_ad
+			    skorlar[i].skor = intYap(rez[2]);  // skor 
+			}
+			
+			dosya.close();
+			
+			temizle();
+			cout<<" ----- SKOR TABLOSU -----\n\n";
+			
+			for(int i = 0; i<adet; i++)
+			{
+			    cout<<"Kullanýcý adý: "<<skorlar[i].kul_ad<<endl; // kul_ad
+			    cout<<"Skor: "<<skorlar[i].skor<<endl; // skor
+			    cout<<"----------\n";
+			}
+			
+			system("pause");
+			text_print("Oyun menüsüne tekrar dönülüyor...");
+			Sleep(500);
+			temizle();
+		}
 	
 };
 
