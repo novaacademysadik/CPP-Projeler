@@ -1,7 +1,7 @@
 #include "Print.h"
 #include "battle.h"
 
-int skor = 0;
+
 int zorluk;
 int highest;
 int lowest;
