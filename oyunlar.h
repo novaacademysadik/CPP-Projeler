@@ -3,13 +3,14 @@
 #include "mayin_tarlasi/mayin_tarlasi_oyunu.h"
 #include "taskagitmakas/taskagitmakas.h"
 #include "savas_oyunu/battle.h"
+#include "tahmin_oyunu/tahmin_oyunu.h"
 
 class Oyun:public virtual Tanim
 {
 	public:
 		void oyunMenu()
 		{
-			string secimler[] = {"Kelime Oyunu","İşlem Oyunu","Savaş Oyunu","Mayın Tarlası","Taş Kağıt Makas"};
+			string secimler[] = {"Kelime Oyunu","İşlem Oyunu","Savaş Oyunu","Mayın Tarlası","Taş Kağıt Makas","Tahmin Oyunu"};
          bool h = false, cikis = false;
 			 do
 			 {
@@ -32,7 +33,9 @@ class Oyun:public virtual Tanim
 			 			break;
 			 		case 5:
 			 			TasKagitMakasOyna();
-			 			break;	
+			 			break;
+					case 6:
+					     tahminOyunuOyna();	 	
 			 		case 0:
 					    cikis = true;
 						break;

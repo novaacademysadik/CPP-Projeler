@@ -1,6 +1,5 @@
-#include "../inc.h"
 #include "TahminOyunu.h"
-int main()
+int tahminOyunuOyna()
 {  
 	Ayar a;
 	a.dilAyar();
