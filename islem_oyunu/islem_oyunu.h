@@ -1,7 +1,7 @@
 #include "Print.h"
 #include "battle.h"
 
-int skor = 0;
+
 int zorluk;
 int highest;
 int lowest;
@@ -189,5 +189,6 @@ void islem_oyna(Bilgi kullanici){
 
 
 void savas_oyunu_oyna(){
+	
 	savas_baslat();
 }

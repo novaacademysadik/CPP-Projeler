@@ -214,7 +214,7 @@ class savas_oyunu : public assasin , public warrior{
 				
 				skor = 100;
 				
-				print(skor)
+				print(skor);
 				
 				break;
 			}
@@ -296,7 +296,7 @@ class savas_oyunu : public assasin , public warrior{
 void savas_oyna(Bilgi kullanici){
 	savas_oyunu oyun;
 	
-	oyun.savas_baslat()
+	oyun.savas_baslat();
 }
 
 
